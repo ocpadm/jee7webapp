@@ -1,0 +1,9 @@
+<jboss-web>
+	<context-root>jee7webapp-web</context-root>
+	<!--  security-domain>java:/jaas/SPNEGO</security-domain>
+	<valve>
+		<class-name>org.jboss.security.negotiation.NegotiationAuthenticator
+		</class-name>
+	</valve>
+	<jacc-star-role-allow>true</jacc-star-role-allow-->
+</jboss-web>
