@@ -27,7 +27,7 @@
 
 		<!-- Define the version of the JBoss BOMs we want to import to specify 
 			tested stacks. -->
-		<version.jboss.bom.eap>7.0.2</version.jboss.bom.eap>
+		<version.jboss.bom>8.2.1.Final</version.jboss.bom>
 
 		<!-- other plugin versions -->
 		<version.surefire.plugin>2.10</version.surefire.plugin>
@@ -38,18 +38,23 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
+
 	<dependencyManagement>
 		<dependencies>
-			<!-- JBoss distributes a complete set of Java EE APIs including a Bill 
+			<!-- JBoss distributes a complete set of Java EE 7 APIs including a Bill 
 				of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection) 
-				of artifacts. We use this here so that we always get the correct versions 
-				of artifacts. Here we use the jboss-javaee-7.0-eap-with-tools stack (you 
-				can read this as the JBoss stack of the Java EE APIs, with some extras tools 
-				for your project, such as Arquillian for testing) -->
+				of artifacts. -->
 			<dependency>
-				<groupId>org.jboss.bom</groupId>
-				<artifactId>jboss-eap-javaee7-with-tools</artifactId>
-				<version>${version.jboss.bom.eap}</version>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-with-tools</artifactId>
+				<version>${version.jboss.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-with-hibernate</artifactId>
+				<version>${version.jboss.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -57,4 +62,25 @@
 	</dependencyManagement>
 
 
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone/</url>
+		</repository>
+
+
+	</repositories>
 </project>

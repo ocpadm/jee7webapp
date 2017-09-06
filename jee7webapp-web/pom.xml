@@ -37,11 +37,13 @@
 
 		<!-- Import the JAX-RS API, we use provided scope as the API is included 
 			in JBoss EAP -->
+		<!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.ws.rs/jboss-jaxrs-api_2.0_spec -->
 		<dependency>
 			<groupId>org.jboss.spec.javax.ws.rs</groupId>
 			<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-			<scope>provided</scope>
+			<version>1.0.0.Final</version>
 		</dependency>
+
 
 		<!-- Import the JPA API, we use provided scope as the API is included in 
 			JBoss EAP -->
